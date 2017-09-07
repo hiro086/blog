@@ -86,7 +86,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="OP-TEE,Hello_world," />
 
 
 
@@ -104,16 +104,27 @@
 
 
 
-<meta name="description" content="人总是需要有一些莫名其妙坚持的">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Hiro WANG&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/categories/TrustZone/index.html">
+<meta name="description" content="系列一中实现了QEMU虚拟机中的OP-TEE环境搭建，对于如何直观的理解OP-TEE的文件系统，本文中通过对其中集成的Hello_world示例进行分析，讲解Hello_world的运行流程。 本文系一边查阅资料一边记录而成，有错误之处欢迎指出  Hello_world文件目录安装好OP-TEE环境后，在Normal窗口键入hello_world，产生如下输出  查看ll hello_world">
+<meta name="keywords" content="OP-TEE,Hello_world">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OP-TEE系列之(二)Hello-world示例程序讲解">
+<meta property="og:url" content="http://yoursite.com/2017/09/05/OP-TEE系列之-二-Hello-world示例程序讲解/index.html">
 <meta property="og:site_name" content="Hiro WANG&#39;s Blog">
-<meta property="og:description" content="人总是需要有一些莫名其妙坚持的">
+<meta property="og:description" content="系列一中实现了QEMU虚拟机中的OP-TEE环境搭建，对于如何直观的理解OP-TEE的文件系统，本文中通过对其中集成的Hello_world示例进行分析，讲解Hello_world的运行流程。 本文系一边查阅资料一边记录而成，有错误之处欢迎指出  Hello_world文件目录安装好OP-TEE环境后，在Normal窗口键入hello_world，产生如下输出  查看ll hello_world">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/images/post_02_1.png">
+<meta property="og:image" content="http://yoursite.com/images/post_02_2.jpg">
+<meta property="og:image" content="http://yoursite.com/images/post_02_4.jpg">
+<meta property="og:image" content="http://yoursite.com/images/post_02_3.jpg">
+<meta property="og:image" content="http://yoursite.com/images/post_02_5.png">
+<meta property="og:image" content="http://yoursite.com/images/post_02_6.png">
+<meta property="og:image" content="http://yoursite.com/images/post_02_7.png">
+<meta property="og:image" content="http://yoursite.com/images/post_02_8.png">
+<meta property="og:updated_time" content="2017-09-06T01:09:38.763Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hiro WANG&#39;s Blog">
-<meta name="twitter:description" content="人总是需要有一些莫名其妙坚持的">
+<meta name="twitter:title" content="OP-TEE系列之(二)Hello-world示例程序讲解">
+<meta name="twitter:description" content="系列一中实现了QEMU虚拟机中的OP-TEE环境搭建，对于如何直观的理解OP-TEE的文件系统，本文中通过对其中集成的Hello_world示例进行分析，讲解Hello_world的运行流程。 本文系一边查阅资料一边记录而成，有错误之处欢迎指出  Hello_world文件目录安装好OP-TEE环境后，在Normal窗口键入hello_world，产生如下输出  查看ll hello_world">
+<meta name="twitter:image" content="http://yoursite.com/images/post_02_1.png">
 
 
 
@@ -143,13 +154,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/categories/TrustZone/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/09/05/OP-TEE系列之-二-Hello-world示例程序讲解/"/>
 
 
 
 
 
-  <title>分类: TrustZone | Hiro WANG's Blog</title>
+  <title>OP-TEE系列之(二)Hello-world示例程序讲解 | Hiro WANG's Blog</title>
   
 
 
@@ -168,7 +179,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -306,55 +317,260 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block category">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>TrustZone<small>分类</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/05/OP-TEE系列之-二-Hello-world示例程序讲解/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hiro WANG's Blog">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hiro WANG's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2017/08/26/Ubuntu-14-04-64位-搭建OP-TEE环境/" itemprop="url">
-              
-                <span itemprop="name">OP-TEE系列之(一)Ubuntu-14搭建QEMU中OP-TEE可信执行环境</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">OP-TEE系列之(二)Hello-world示例程序讲解</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-08-26T22:38:26+08:00"
-              content="2017-08-26" >
-          08-26
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-05T21:46:45+08:00">
+                2017-09-05
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/OP-TEE/" itemprop="url" rel="index">
+                    <span itemprop="name">OP-TEE</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/09/05/OP-TEE系列之-二-Hello-world示例程序讲解/" class="leancloud_visitors" data-flag-title="OP-TEE系列之(二)Hello-world示例程序讲解">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  564 字
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>系列一中实现了QEMU虚拟机中的OP-TEE环境搭建，对于如何直观的理解OP-TEE的文件系统，本文中通过对其中集成的Hello_world示例进行分析，讲解Hello_world的运行流程。</p>
+<p><br>本文系一边查阅资料一边记录而成，有错误之处欢迎指出</p>
+</blockquote>
+<h2 id="Hello-world文件目录"><a href="#Hello-world文件目录" class="headerlink" title="Hello_world文件目录"></a>Hello_world文件目录</h2><p>安装好OP-TEE环境后，在Normal窗口键入hello_world，产生如下输出</p>
+<p><img src="/images/post_02_1.png" alt="post_02_1"></p>
+<p>查看ll hello_world项目文件夹</p>
+<p><img src="/images/post_02_2.jpg" alt="post_02_2"></p>
+<h3 id="ta文件夹：TA部分代码"><a href="#ta文件夹：TA部分代码" class="headerlink" title="ta文件夹：TA部分代码"></a>ta文件夹：TA部分代码</h3><p><img src="/images/post_02_4.jpg" alt="post_02_4"></p>
+<p>Android.mk文件：ta: Add support for Android.mk</p>
+<p>​&emsp;&emsp; <em>To allow hello_world to build properly in aosp.</em></p>
+<p>sub.mk文件：定义该TA中需要被编译的source code。</p>
+<p>user_ta_header_defines.h文件：定义UUID、FLAGS等相关宏</p>
+<p>tee_client_api.h文件：TEE client API (built by optee_client)</p>
+<p>include/hello_world_ta.h文件：定义了UUID的宏以及与CA对应的commond ID宏</p>
+<p>​&emsp;&emsp; <em>UUID (TA_HELLO_WORLD_UUID)</em></p>
+<p>&emsp;&emsp; <em>Commond ID(TA_HELLO_WORLD_CMD_INC_VALUE)</em></p>
+<p>​&emsp;&emsp;&emsp;&emsp; <em>The Trusted Application Function ID(s) implemented in this TA</em></p>
+<p>hello_world_ta.c</p>
+<p>​&emsp;&emsp; <em>TA实现部分代码</em></p>
+<p>Makefile文件：编译文件</p>
+<p>​&emsp;&emsp;配置Makefile</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># The UUID for the Trusted Application</div><div class="line">BINARY=8aaaf200-2450-11e4-abe2-0002a5d5c51b</div></pre></td></tr></table></figure>
+<h3 id="host文件夹：CA部分代码"><a href="#host文件夹：CA部分代码" class="headerlink" title="host文件夹：CA部分代码"></a>host文件夹：CA部分代码</h3><p><img src="/images/post_02_3.jpg" alt="post_02_3"></p>
+<p>main.c文件：该文件就是在linux中调用CA可执行文件的主函数存在的文件</p>
+<p>Makefile文件：编译CA可执行文件使用的makefile文件</p>
+<p>​&emsp;&emsp;配置Makefile_主要修改BINARY变量和OBJ变量</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">OBJS = main.o</div><div class="line">BINARY=hello_world</div><div class="line">//如果CA部分的代码不止一个.c文件，则需要将所有的.c文件编译生成的.o文件</div><div class="line">//文件名称添加到OBJS变量中，而BINARY变量就是编译完成之后生成的Binary的名称。</div></pre></td></tr></table></figure>
+<h3 id="编译TA和CA代码"><a href="#编译TA和CA代码" class="headerlink" title="编译TA和CA代码"></a>编译TA和CA代码</h3><p>build_ta_helloworld_qemu.sh：执行编译TA/CA文件，生成编译二进制、map文件</p>
+<h2 id="Hello-world实现"><a href="#Hello-world实现" class="headerlink" title="Hello_world实现"></a>Hello_world实现</h2><h3 id="组成"><a href="#组成" class="headerlink" title="组成"></a>组成</h3><p>​&emsp;&emsp;客户端实现 Linux</p>
+<p>​&emsp;&emsp;安全世界可信应用TA，被动接收器</p>
+<p>​&emsp;&emsp;基于GP api</p>
+<h3 id="执行"><a href="#执行" class="headerlink" title="执行"></a>执行</h3><p><img src="/images/post_02_5.png" alt="post_02_5"></p>
+<p>1、Initialize context</p>
+<p>​&emsp;&emsp;TEEC_InitializeContext</p>
+<p>2、Open session</p>
+<p>​&emsp;&emsp;TEEC_OpenSession</p>
+<p>​&emsp;&emsp;&emsp;&emsp;Open a session to the “hello world” TA, the TA will </p>
+<p>​&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<strong>print “hello world!”</strong> </p>
+<p>​&emsp;&emsp;&emsp;&emsp;in the log when the session is created.</p>
+<p><img src="/images/post_02_6.png" alt="post_02_6"></p>
+<p>&emsp;&emsp;1）首先TEE Core接受TEE Driver传递过来的TEEC_OpenSession()调用</p>
+<p>&emsp;&emsp;2）TEE Core通过tee-supplicant（Linux用户空间驻留程序）加载TA二进制文件</p>
+<p>&emsp;&emsp;3）TEE Core复制TA进去安全RAM，并调用函数TA_OpenSessionEntryPoint()</p>
+<p>&emsp;&emsp;4）会话返回</p>
+<p>3、Invoke command调用TA命令</p>
+<p><img src="/images/post_02_7.png" alt="post_02_7"></p>
+<p>​&emsp;&emsp;TEEC_InvokeCommand()</p>
+<p>​&emsp;&emsp;TA_InvokeCommandEntryPoint()<br>&emsp;&emsp;&emsp;&emsp; 调用TA实现增量</p>
+<p>3、Close session and finalize context</p>
+<p><img src="/images/post_02_8.png" alt="post_02_8"></p>
+<p>​&emsp;&emsp;TEEC_CloseSession(&amp;sess);</p>
+<p>​&emsp;&emsp;TEEC_FinalizeContext(&amp;ctx);</p>
+<p>&emsp;&emsp;The TA will print </p>
+<p>​&emsp;&emsp;&emsp;&emsp; <strong>“Goodbye!”</strong></p>
+<p>&emsp;&emsp;in the log when the session is closed.</p>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/OP-TEE/" rel="tag"># OP-TEE</a>
+          
+            <a href="/tags/Hello-world/" rel="tag"># Hello_world</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/01/Intel-SGX-ARM-TrustZone等技术简介与分析入门/" rel="next" title="Intel SGX ARM TrustZone等技术简介与分析入门">
+                <i class="fa fa-chevron-left"></i> Intel SGX ARM TrustZone等技术简介与分析入门
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/09/06/OP-TEE系列之-三-如何新建一个TA程序/" rel="prev" title="OP-TEE系列之(三)如何新建一个TA程序">
+                OP-TEE系列之(三)如何新建一个TA程序 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -362,6 +578,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -384,8 +604,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -524,6 +753,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hello-world文件目录"><span class="nav-number">1.</span> <span class="nav-text">Hello_world文件目录</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ta文件夹：TA部分代码"><span class="nav-number">1.1.</span> <span class="nav-text">ta文件夹：TA部分代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#host文件夹：CA部分代码"><span class="nav-number">1.2.</span> <span class="nav-text">host文件夹：CA部分代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编译TA和CA代码"><span class="nav-number">1.3.</span> <span class="nav-text">编译TA和CA代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hello-world实现"><span class="nav-number">2.</span> <span class="nav-text">Hello_world实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#组成"><span class="nav-number">2.1.</span> <span class="nav-text">组成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#执行"><span class="nav-number">2.2.</span> <span class="nav-text">执行</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -675,10 +920,10 @@ show_date_time();
 
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
 
-  
+
 
   
 
@@ -1145,26 +1390,6 @@ show_date_time();
   
 
   
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 

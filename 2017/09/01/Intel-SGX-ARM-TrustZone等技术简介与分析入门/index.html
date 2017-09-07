@@ -86,7 +86,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="TrustZone,SGX," />
 
 
 
@@ -104,16 +104,18 @@
 
 
 
-<meta name="description" content="人总是需要有一些莫名其妙坚持的">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Hiro WANG&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/categories/TrustZone/index.html">
+<meta name="description" content="Intel’s SGX, ARM’s TrustZone, Apple’s Secure Enclave, and IBM SecureBlue">
+<meta name="keywords" content="TrustZone,SGX">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Intel SGX ARM TrustZone等技术简介与分析入门">
+<meta property="og:url" content="http://yoursite.com/2017/09/01/Intel-SGX-ARM-TrustZone等技术简介与分析入门/index.html">
 <meta property="og:site_name" content="Hiro WANG&#39;s Blog">
-<meta property="og:description" content="人总是需要有一些莫名其妙坚持的">
+<meta property="og:description" content="Intel’s SGX, ARM’s TrustZone, Apple’s Secure Enclave, and IBM SecureBlue">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-09-01T12:39:16.030Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hiro WANG&#39;s Blog">
-<meta name="twitter:description" content="人总是需要有一些莫名其妙坚持的">
+<meta name="twitter:title" content="Intel SGX ARM TrustZone等技术简介与分析入门">
+<meta name="twitter:description" content="Intel’s SGX, ARM’s TrustZone, Apple’s Secure Enclave, and IBM SecureBlue">
 
 
 
@@ -143,13 +145,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/categories/TrustZone/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/09/01/Intel-SGX-ARM-TrustZone等技术简介与分析入门/"/>
 
 
 
 
 
-  <title>分类: TrustZone | Hiro WANG's Blog</title>
+  <title>Intel SGX ARM TrustZone等技术简介与分析入门 | Hiro WANG's Blog</title>
   
 
 
@@ -168,7 +170,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -306,55 +308,216 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block category">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>TrustZone<small>分类</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/01/Intel-SGX-ARM-TrustZone等技术简介与分析入门/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hiro WANG's Blog">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hiro WANG's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2017/08/26/Ubuntu-14-04-64位-搭建OP-TEE环境/" itemprop="url">
-              
-                <span itemprop="name">OP-TEE系列之(一)Ubuntu-14搭建QEMU中OP-TEE可信执行环境</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">Intel SGX ARM TrustZone等技术简介与分析入门</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-08-26T22:38:26+08:00"
-              content="2017-08-26" >
-          08-26
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-01T20:36:23+08:00">
+                2017-09-01
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/可信计算/" itemprop="url" rel="index">
+                    <span itemprop="name">可信计算</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/09/01/Intel-SGX-ARM-TrustZone等技术简介与分析入门/" class="leancloud_visitors" data-flag-title="Intel SGX ARM TrustZone等技术简介与分析入门">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2,848 字
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Intel’s SGX, ARM’s TrustZone, Apple’s Secure Enclave, and IBM SecureBlue<br><a id="more"></a></p>
+<h2 id="Intel’s-SGX"><a href="#Intel’s-SGX" class="headerlink" title="Intel’s SGX"></a>Intel’s SGX</h2><p>Intel SGX全称Intel Software Guard Extensions，是对因特尔体系（IA）的一个扩展，用于增强软件的安全性。将合法软件的安全操作封装在一个容器中，保护其不受恶意软件的攻击，特权或者非特权的软件都无法访问容器，也就是说，一旦软件和数据位于容器中，即便操作系统或者和VMM（Hypervisor）被攻破，也无法影响容器里面的代码和数据。Enclave的安全边界只包含CPU和它自身。SGX创建的enclave也可以理解为一个可信执行环境TEE（Trusted Execution Environment）。硬件实现是在正常的MMU之后又加了一层，专门检测是不是属于容器的，同时也会防止Snooping等操作的窥探。设置这个容器的寄存器，指令和独立MMU游离于Hypervisor之外，不能被更高优先级所修改。想法是很好，但SGX仅仅是CPU侧的防护，还是可以通过PCIe和DMA设备直接读取DDR内容的。ARMv9里面也会有类似设计。</p>
+<p>Intel SGX设计目标可以概括为以下8个方面：<br>1、允许应用程序员保护敏感数据，防止运行在高特权级的流氓软件非法访问或修改。<br>2、使应用程序能够保存的敏感代码和数据的机密性和完整性，而不会中断的合法的系统软件来安排和管理使用平台资源的能力。<br>3、计算设备的使用者能够重新获得平台的控制权，而且可以自由的安装或卸载应用和选择服务。<br>4、使平台能衡量应用程序的受信任的代码，并产生一个签署认证，植根于处理器，包括这个衡量代码已在可信环境中正确初始化的认证。<br>5、允许使用熟悉的工具和流程开发可信应用。<br>6、允许受信任的应用程序的性能和底层应用处理器的功能扩展。<br>7、使软件厂商可以以他们的节奏带来可靠的应用程序和更新，使用自己选择的分销渠道。<br>8、使应用程序能定义代码和数据的安全区域，即使攻击者已经对平台的物理控制而且能够直接攻击内存，该区域也能保持保密性。引自<a href="http://www.tk4479.net/dengjiaxing0321/article/details/52290554" target="_blank" rel="external">dengjiaxing0321的博客</a></p>
+<h2 id="ARM’s-TrustZone"><a href="#ARM’s-TrustZone" class="headerlink" title="ARM’s TrustZone"></a>ARM’s TrustZone</h2><h3 id="TrustZone技术简介"><a href="#TrustZone技术简介" class="headerlink" title="TrustZone技术简介"></a>TrustZone技术简介</h3><p>ARM TrustZone技术已有近十年。在x86平台上有关可信平台模块（TPM）的有争议的讨论正在全面展开（TCPA，Palladium）的时候被介绍。相似于TPM芯片意味着使PC“值得信赖”，TrustZone旨在建立对基于ARM的平台的信任。与被设计为具有预定义功能集的固定功能设备的TPM相比，TrustZone通过将CPU用作可自由编程的可信平台模块来表示更灵活的方法。为了做到这一点，除了常规正常模式之外，ARM还推出了一种称为“安全模式”的特殊CPU模式，从而建立了“安全的世界”和“正常世界”的概念。两个世界之间的区别与用户级和内核级代码之间的正常环保保护完全正交，并且与正常世界中运行的操作系统隐藏。此外，它不限于CPU，而是通过系统总线传播到外围设备和存储器控制器。这样一来，这样一个基于ARM的平台就成了一种分裂的个性。当安全模式处于活动状态时，与在非安全模式下运行的软件相比，CPU上运行的软件与整个系统的视图不同。这样，系统功能，特别是安全功能和加密凭据，可以从正常世界中隐藏起来。<br>TrustZone技术的核心理念是将可信资源与非可信资源在硬件上实现隔离。在处理器内部，软件只能安装于安全或非安全域其中一处；在两个域间切换则必须经过Cortex-A处理器的软件（后文称安全监视器）和Cortex-M处理器的硬件（核心逻辑）处理才能执行。这种将安全（可信）域和非安全（非可信）域隔离理念的实现不仅涉及CPU，还涵盖存储、片上总线系统、中断、周边设备接口和SoC上的软件。目的是使设备能够从功能丰富的开放操作环境和强大的安全解决方案中受益。精心设计的系统硬件架构和适当的安全软件设计可以确保敏感数据保持安全，无论可信赖的操作环境如何。</p>
+<h3 id="TrustZone硬件架构"><a href="#TrustZone硬件架构" class="headerlink" title="TrustZone硬件架构"></a>TrustZone硬件架构</h3><p>TrustZone的硬件架构方面主要体现在内核虚拟化、内存隔离、外设/总线隔离技术、中断隔离技术。<br>内核虚拟化: 内核虚拟化是指通过CPU中虚拟出两个内核，并且把安全世界的OS运行在内核0中，普通世界的OS运行在内核1中。两个OS独立运行在不同的虚拟内核中,通过时间片进行两个内核间切换执行。<br>外设/总线隔离技术：通过总线扩展了AWPROT（总线写事务控制信号）和ARPROT总线读事务信号）。当低电平时为安全世界的总线读写控制信号，当高电平时为普通世界的读写控制信号。<br>内存隔离技术:TrustZone技术采用两个MMU,把安全世界和普通世界的内存管理隔离开。<br>MMU内存管理单元<br>中断隔离技术:为了区分安全世界和普通世界的中断源，ARM设计了FIQ和IRQ两种不同的中断源，设计者可以将FIQ用于安全世界的中断源，将IRQ用于普通世界的中断源。</p>
+<h3 id="Trustzone能做什么："><a href="#Trustzone能做什么：" class="headerlink" title="Trustzone能做什么："></a>Trustzone能做什么：</h3><p>1.防止操作系统被攻破后关键数据泄密，关键数据存放在特定内存区域，而那块区域，只有安全操作系统才有可能读到。<br>2.防止通过JTAG等调试接口读到寄存器，缓存，内存或者闪存数据。<br>3.从芯片制造开始，最初的密钥可以用芯片熔丝实现，往后启动的每一步都需要最高特权级和密钥验证，建立信任链，杜绝软件被替换或者被恶意读取。<br>4.防止边带攻击，比如量取内存颗粒的信号猜测数据，制造故障让检验模块停止工作，替换外围器件，输入特定数据确定电磁信号特征，打开芯片直接量内部信号线等。</p>
+<h2 id="Apple’s-Secure-Enclave"><a href="#Apple’s-Secure-Enclave" class="headerlink" title="Apple’s Secure Enclave"></a>Apple’s Secure Enclave</h2><p>苹果定制了一个高度优化的TrustZone版本，可以说A7的TrustZone安全系统是由硬件和软件分区来成就的。不管是硬件还是软件中，都有两个区，一个是安全子系统，一个是正常的区。TrustZone AMBA3 AXI总线可确保正常区组件不访问安全区的数据。而那些敏感的数据就放在安全区，来防止许多可能的攻击。当有安全验证的需求时，Moniter模式就会自主进行两个虚拟处理器的切换，有针对性地工作。</p>
+<h2 id="IBM-SecureBlue"><a href="#IBM-SecureBlue" class="headerlink" title="IBM SecureBlue"></a>IBM SecureBlue</h2><p>SecureBlue是IBM设计的一种计算机硬件，可将数据加密内置到微处理器中。它可以添加到现有的处理器，并且在数据通过它们时加密和解密数据，而不需要处理器本身的任何电源。该技术的可能用途是保护被盗设备上的数据和数字版权管理（DRM）的实施。</p>
+<h2 id="特性与区别"><a href="#特性与区别" class="headerlink" title="特性与区别"></a>特性与区别</h2><p>SGX与ARM TrustZone（TZ）还是有一点小区别的，TZ中通过CPU划分为两个隔离环境（安全世界和正常世界），两者之间通过SMC指令通信；而SGX中一个CPU可以运行多个安全enclaves，并发执行亦可。当然，在TZ的安全世界内部实现多个相互隔离的安全服务亦可达到同样的效果。引自<a href="http://blog.csdn.net/forestcell/article/details/51494619" target="_blank" rel="external">TrustZone领域先行者</a></p>
+<p>Trustzone默认相信SecureOS，安全世界。SGX仅相信CPU core，通过sgx指令构建enclave容器。简单比喻，TEE是个公用大保险柜，什么东西都装进去，有漏洞的app可能也进去了，而且保险柜钥匙在管理员手上，必须相信管理员。SGX每个app有自己的保险柜，钥匙在自己手上</p>
+<p>作者：Enzo<br>链接：<a href="https://www.zhihu.com/question/31565742/answer/76452121" target="_blank" rel="external">https://www.zhihu.com/question/31565742/answer/76452121</a><br>来源：知乎<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+<p>Intel SGX最关键的优势在于将程序以外的software stack如OS和BIOS都排除在了TCB（Trusted Computing Base）以外。换句话说，就是在enclave里的code只信任自己和intel的CPU。从理论上来说，SGX的应用范围比较广泛，一个重要用途是对于在multi-tenant的cloud上的软件来讲可以防止底层OS被compromise以后对自己的攻击，同时在软件的管理上也可以不用信任云供应商，这个threat model是比较符合当前要解决的云计算安全的，相对于AMD最新出的SEV技术，SGX提供了fine-grained 的保护在应用程序层面而不是虚拟机层面。当然，SGX的缺点也是比较明显，最大的缺点是需要开发人员对代码进行重构，将程序分成可信部分和非可信部分，目前有Intel发布的SDK来协助做这方面工作，但仍然是很大量的工作，而且是比较容易造成秘密泄漏的。第二是性能问题，其中enclave的进出是瓶颈，这是由于TLB中cache了enclave中的memory access的缘故，因而进出enclave需要进行TLB flush。另外执行enclave code时，非TLB的memory access也会造成额外的一些检查，导致更大的overhead。第三是如果enclave code本身有vulnerabilities的话，enclave是无法保护程序的integrity，目前就有针对bufferoverflow的ROP攻击能够控制enclave。另外也有些side-channel attack，能够导致secret leakage。针对SGX应用目前主要停留在研究阶段，一个大的方向便是保护cloud相关的infrastructure，比如map-reduce(VC3), zookeeper, 还有NFV。另外有一些工作是针对解决SGX存在的如上所述的问题的，比如大家尝试用不同的方法来把程序整体全部放在enclave里面，从而避免代码重构，重要的工作有Haven，SCONE，和Graphene-SGX。SGX要进入工业界应用尚需时间，一个重要的问题是现在在intel发行的服务器芯片上还没有SGX，而SGX的重要应用就是在数据中心和云端的应用。目前云提供商还是有所跟进，相信不远的将来会在工业界有一席之地。<br>作者：亦无米<br>链接：<a href="https://www.zhihu.com/question/31565742/answer/216835538" target="_blank" rel="external">https://www.zhihu.com/question/31565742/answer/216835538</a><br>来源：知乎<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/TrustZone/" rel="tag"># TrustZone</a>
+          
+            <a href="/tags/SGX/" rel="tag"># SGX</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/01/利用ZoomEye快速查找Hikvision网络摄像头/" rel="next" title="利用ZoomEye快速查找Hikvision网络摄像头">
+                <i class="fa fa-chevron-left"></i> 利用ZoomEye快速查找Hikvision网络摄像头
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/09/05/OP-TEE系列之-二-Hello-world示例程序讲解/" rel="prev" title="OP-TEE系列之(二)Hello-world示例程序讲解">
+                OP-TEE系列之(二)Hello-world示例程序讲解 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -362,6 +525,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -384,8 +551,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -524,6 +700,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Intel’s-SGX"><span class="nav-number">1.</span> <span class="nav-text">Intel’s SGX</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ARM’s-TrustZone"><span class="nav-number">2.</span> <span class="nav-text">ARM’s TrustZone</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#TrustZone技术简介"><span class="nav-number">2.1.</span> <span class="nav-text">TrustZone技术简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TrustZone硬件架构"><span class="nav-number">2.2.</span> <span class="nav-text">TrustZone硬件架构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Trustzone能做什么："><span class="nav-number">2.3.</span> <span class="nav-text">Trustzone能做什么：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Apple’s-Secure-Enclave"><span class="nav-number">3.</span> <span class="nav-text">Apple’s Secure Enclave</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IBM-SecureBlue"><span class="nav-number">4.</span> <span class="nav-text">IBM SecureBlue</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#特性与区别"><span class="nav-number">5.</span> <span class="nav-text">特性与区别</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -675,10 +867,10 @@ show_date_time();
 
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
 
-  
+
 
   
 
@@ -1145,26 +1337,6 @@ show_date_time();
   
 
   
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 

