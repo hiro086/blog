@@ -104,19 +104,19 @@
 
 
 
-<meta name="description" content="OP-TEE是包含使用ARM®TrustZone®技术的LinuxTEE源代码。 该组件符合GlobalPlatform TEE系统架构规范。 它还提供了由GlobalPlatform TEE标准定义的TEE内部核心API v1.1，用于开发可信应用程序。">
+<meta name="description" content="OP-TEE是包含使用ARM®TrustZone®技术的LinuxTEE源代码。 该组件符合GlobalPlatform TEE系统架构规范。 它还提供了由GlobalPlatform TEE标准定义的TEE内部核心API v1.1，用于开发可信应用程序。  安装repo1234567mkdir ~/binPATH=~/bin:$PATH//下载curl https://storage.googl">
 <meta name="keywords" content="TrustZone,OP-TEE">
 <meta property="og:type" content="article">
 <meta property="og:title" content="OP-TEE系列之(一)Ubuntu-14搭建QEMU中OP-TEE可信执行环境">
 <meta property="og:url" content="http://yoursite.com/2017/08/26/Ubuntu-14-04-64位-搭建OP-TEE环境/index.html">
 <meta property="og:site_name" content="Hiro WANG&#39;s Blog">
-<meta property="og:description" content="OP-TEE是包含使用ARM®TrustZone®技术的LinuxTEE源代码。 该组件符合GlobalPlatform TEE系统架构规范。 它还提供了由GlobalPlatform TEE标准定义的TEE内部核心API v1.1，用于开发可信应用程序。">
+<meta property="og:description" content="OP-TEE是包含使用ARM®TrustZone®技术的LinuxTEE源代码。 该组件符合GlobalPlatform TEE系统架构规范。 它还提供了由GlobalPlatform TEE标准定义的TEE内部核心API v1.1，用于开发可信应用程序。  安装repo1234567mkdir ~/binPATH=~/bin:$PATH//下载curl https://storage.googl">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/images/post_01_1.png">
-<meta property="og:updated_time" content="2017-09-05T14:23:39.198Z">
+<meta property="og:updated_time" content="2017-09-08T11:30:37.434Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="OP-TEE系列之(一)Ubuntu-14搭建QEMU中OP-TEE可信执行环境">
-<meta name="twitter:description" content="OP-TEE是包含使用ARM®TrustZone®技术的LinuxTEE源代码。 该组件符合GlobalPlatform TEE系统架构规范。 它还提供了由GlobalPlatform TEE标准定义的TEE内部核心API v1.1，用于开发可信应用程序。">
+<meta name="twitter:description" content="OP-TEE是包含使用ARM®TrustZone®技术的LinuxTEE源代码。 该组件符合GlobalPlatform TEE系统架构规范。 它还提供了由GlobalPlatform TEE标准定义的TEE内部核心API v1.1，用于开发可信应用程序。  安装repo1234567mkdir ~/binPATH=~/bin:$PATH//下载curl https://storage.googl">
 <meta name="twitter:image" content="http://yoursite.com/images/post_01_1.png">
 
 
@@ -443,8 +443,9 @@
       
 
       
-        <p>OP-TEE是包含使用ARM®TrustZone®技术的LinuxTEE源代码。 该组件符合GlobalPlatform TEE系统架构规范。 它还提供了由GlobalPlatform TEE标准定义的TEE内部核心API v1.1，用于开发可信应用程序。<br><a id="more"></a></p>
+        <p>OP-TEE是包含使用ARM®TrustZone®技术的LinuxTEE源代码。 该组件符合GlobalPlatform TEE系统架构规范。 它还提供了由GlobalPlatform TEE标准定义的TEE内部核心API v1.1，用于开发可信应用程序。 </p>
 <h2 id="安装repo"><a href="#安装repo" class="headerlink" title="安装repo"></a>安装repo</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">mkdir ~/bin</div><div class="line"></div><div class="line">PATH=~/bin:$PATH</div><div class="line"><span class="comment">//下载</span></div><div class="line">curl https:<span class="comment">//storage.googleapis.com/git-repo-downloads/repo &gt; ~/bin/repo</span></div><div class="line"></div><div class="line">chmod a+x ~/bin/repo</div></pre></td></tr></table></figure>
+<a id="more"></a>
 <h3 id="一些情况下会报如下错误"><a href="#一些情况下会报如下错误" class="headerlink" title="一些情况下会报如下错误"></a>一些情况下会报如下错误</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">fatal: Cannot get https:<span class="comment">//gerrit.googlesource.com/git-repo/clone.bundle</span></div><div class="line">fatal: error [Errno <span class="number">101</span>] Network is unreachable</div></pre></td></tr></table></figure>
 <h4 id="此处是由于下载老版本repo的原因，文件里有我运行成功的一个版本源码，复制替换repo文件即可，注意已替换googlesource的URL到国内镜像站"><a href="#此处是由于下载老版本repo的原因，文件里有我运行成功的一个版本源码，复制替换repo文件即可，注意已替换googlesource的URL到国内镜像站" class="headerlink" title="此处是由于下载老版本repo的原因，文件里有我运行成功的一个版本源码，复制替换repo文件即可，注意已替换googlesource的URL到国内镜像站"></a>此处是由于下载老版本repo的原因，文件里有我运行成功的一个版本源码，复制替换repo文件即可，注意已替换googlesource的URL到国内镜像站</h4><h2 id="安装依赖库"><a href="#安装依赖库" class="headerlink" title="安装依赖库"></a>安装依赖库</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install android-tools-fastboot autoconf bison cscope curl \</div><div class="line">flex gdisk libc6:i386 libfdt-dev libglib2<span class="number">.0</span>-dev \</div><div class="line">libpixman<span class="number">-1</span>-dev libstdc++<span class="number">6</span>:i386 libz1:i386 netcat \</div><div class="line">python-crypto python-serial uuid-dev xz-utils zlib1g-dev</div></pre></td></tr></table></figure>
 <h2 id="下载OP-TEE源码"><a href="#下载OP-TEE源码" class="headerlink" title="下载OP-TEE源码"></a>下载OP-TEE源码</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">mkdir -p $HOME/devel/optee</div><div class="line"></div><div class="line">cd $HOME/devel/optee</div><div class="line"></div><div class="line">repo init -u https:<span class="comment">//github.com/OP-TEE/manifest.git -m default_stable.xml -b master</span></div></pre></td></tr></table></figure>
@@ -571,7 +572,7 @@
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -582,7 +583,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -593,7 +594,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
