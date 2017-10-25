@@ -104,20 +104,21 @@
 
 
 
-<meta name="description" content="OP-TEE是包含使用ARM®TrustZone®技术的LinuxTEE源代码。 该组件符合GlobalPlatform TEE系统架构规范。 它还提供了由GlobalPlatform TEE标准定义的TEE内部核心API v1.1，用于开发可信应用程序。  安装repo1234567mkdir ~/binPATH=~/bin:$PATH//下载curl https://storage.googl">
+<meta name="description" content="OP-TEE是包含使用ARM®TrustZone®技术的LinuxTEE源代码。 该组件符合GlobalPlatform TEE系统架构规范。 它还提供了由GlobalPlatform TEE标准定义的TEE内部核心API v1.1，用于开发可信应用程序。     安装repo1234567mkdir ~/binPATH=~/bin:$PATH//下载curl https://storage.go">
 <meta name="keywords" content="TrustZone,OP-TEE">
 <meta property="og:type" content="article">
 <meta property="og:title" content="OP-TEE系列之(一)Ubuntu-14搭建QEMU中OP-TEE可信执行环境">
 <meta property="og:url" content="http://yoursite.com/2017/08/26/Ubuntu-14-04-64位-搭建OP-TEE环境/index.html">
 <meta property="og:site_name" content="Hiro WANG&#39;s Blog">
-<meta property="og:description" content="OP-TEE是包含使用ARM®TrustZone®技术的LinuxTEE源代码。 该组件符合GlobalPlatform TEE系统架构规范。 它还提供了由GlobalPlatform TEE标准定义的TEE内部核心API v1.1，用于开发可信应用程序。  安装repo1234567mkdir ~/binPATH=~/bin:$PATH//下载curl https://storage.googl">
+<meta property="og:description" content="OP-TEE是包含使用ARM®TrustZone®技术的LinuxTEE源代码。 该组件符合GlobalPlatform TEE系统架构规范。 它还提供了由GlobalPlatform TEE标准定义的TEE内部核心API v1.1，用于开发可信应用程序。     安装repo1234567mkdir ~/binPATH=~/bin:$PATH//下载curl https://storage.go">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/images/post_01_2.jpg">
 <meta property="og:image" content="http://yoursite.com/images/post_01_1.png">
-<meta property="og:updated_time" content="2017-09-08T11:30:37.434Z">
+<meta property="og:updated_time" content="2017-09-12T04:37:47.612Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="OP-TEE系列之(一)Ubuntu-14搭建QEMU中OP-TEE可信执行环境">
-<meta name="twitter:description" content="OP-TEE是包含使用ARM®TrustZone®技术的LinuxTEE源代码。 该组件符合GlobalPlatform TEE系统架构规范。 它还提供了由GlobalPlatform TEE标准定义的TEE内部核心API v1.1，用于开发可信应用程序。  安装repo1234567mkdir ~/binPATH=~/bin:$PATH//下载curl https://storage.googl">
-<meta name="twitter:image" content="http://yoursite.com/images/post_01_1.png">
+<meta name="twitter:description" content="OP-TEE是包含使用ARM®TrustZone®技术的LinuxTEE源代码。 该组件符合GlobalPlatform TEE系统架构规范。 它还提供了由GlobalPlatform TEE标准定义的TEE内部核心API v1.1，用于开发可信应用程序。     安装repo1234567mkdir ~/binPATH=~/bin:$PATH//下载curl https://storage.go">
+<meta name="twitter:image" content="http://yoursite.com/images/post_01_2.jpg">
 
 
 
@@ -218,16 +219,6 @@
         </li>
       
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
@@ -248,12 +239,12 @@
         </li>
       
         
-        <li class="menu-item menu-item-rank">
-          <a href="/rank/" rel="section">
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-microchip"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
-            阅读榜
+            关于
           </a>
         </li>
       
@@ -444,6 +435,7 @@
 
       
         <p>OP-TEE是包含使用ARM®TrustZone®技术的LinuxTEE源代码。 该组件符合GlobalPlatform TEE系统架构规范。 它还提供了由GlobalPlatform TEE标准定义的TEE内部核心API v1.1，用于开发可信应用程序。 </p>
+<p><img src="/images/post_01_2.jpg" alt="">  </p>
 <h2 id="安装repo"><a href="#安装repo" class="headerlink" title="安装repo"></a>安装repo</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">mkdir ~/bin</div><div class="line"></div><div class="line">PATH=~/bin:$PATH</div><div class="line"><span class="comment">//下载</span></div><div class="line">curl https:<span class="comment">//storage.googleapis.com/git-repo-downloads/repo &gt; ~/bin/repo</span></div><div class="line"></div><div class="line">chmod a+x ~/bin/repo</div></pre></td></tr></table></figure>
 <a id="more"></a>
 <h3 id="一些情况下会报如下错误"><a href="#一些情况下会报如下错误" class="headerlink" title="一些情况下会报如下错误"></a>一些情况下会报如下错误</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">fatal: Cannot get https:<span class="comment">//gerrit.googlesource.com/git-repo/clone.bundle</span></div><div class="line">fatal: error [Errno <span class="number">101</span>] Network is unreachable</div></pre></td></tr></table></figure>
@@ -521,6 +513,11 @@
           
   <div class="comments" id="comments">
     
+       
+         <div onclick="ShowGitment()" id="gitment-display-button">显示 Gitment 评论</div>
+         <div id="gitment-container" style="display:none"></div>
+           
+    
   </div>
 
 
@@ -572,7 +569,7 @@
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -583,7 +580,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -874,6 +871,32 @@ show_date_time();
 
 
   
+   
+   
+   
+   
+   <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+   <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+   
+       <script type="text/javascript">
+           function ShowGitment(){
+               document.getElementById("gitment-display-button").style.display = "none";
+               document.getElementById("gitment-container").style.display = "block";
+               var gitment = new Gitment({
+                   id: document.location.href, 
+                   owner: 'hiro086',
+                   repo: 'https://github.com/hiro086/blog',
+                   oauth: {
+                       client_id: '76c737d8a1864787d803',
+                       client_secret: 'afbb89bba8893de7641fcbc8f331925e733b7641',
+                   }});
+               gitment.render('gitment-container');
+           }
+       </script>
+   
+
+
+
 
 
   

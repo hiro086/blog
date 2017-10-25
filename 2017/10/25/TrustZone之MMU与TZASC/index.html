@@ -86,7 +86,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="TrustZone," />
 
 
 
@@ -104,16 +104,20 @@
 
 
 
-<meta name="description" content="人总是需要有一些莫名其妙坚持的">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Hiro WANG&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/archives/2017/index.html">
+<meta name="description" content="在选择开发板的时候注意到大部分板其实是不支持TZASC的，很疑惑这种TZ是如何保护内存的，这里写一下自己查阅到的信息，以及自己的理解  因为CPU内部的隔离逻辑的细节太过复杂，暂时没想到好的阐述方式，暂时留白。这里简单介绍下内存隔离实现的两个重要概念：MMU与TZASC TrustZone和MMU 摘自羁鸟返旧林的博客 http://blog.sina.com.cn/s/blog_4ce0162">
+<meta name="keywords" content="TrustZone">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TrustZone之MMU与TZASC">
+<meta property="og:url" content="http://yoursite.com/2017/10/25/TrustZone之MMU与TZASC/index.html">
 <meta property="og:site_name" content="Hiro WANG&#39;s Blog">
-<meta property="og:description" content="人总是需要有一些莫名其妙坚持的">
+<meta property="og:description" content="在选择开发板的时候注意到大部分板其实是不支持TZASC的，很疑惑这种TZ是如何保护内存的，这里写一下自己查阅到的信息，以及自己的理解  因为CPU内部的隔离逻辑的细节太过复杂，暂时没想到好的阐述方式，暂时留白。这里简单介绍下内存隔离实现的两个重要概念：MMU与TZASC TrustZone和MMU 摘自羁鸟返旧林的博客 http://blog.sina.com.cn/s/blog_4ce0162">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/images/post05_1.jpg">
+<meta property="og:updated_time" content="2017-10-25T11:21:13.798Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hiro WANG&#39;s Blog">
-<meta name="twitter:description" content="人总是需要有一些莫名其妙坚持的">
+<meta name="twitter:title" content="TrustZone之MMU与TZASC">
+<meta name="twitter:description" content="在选择开发板的时候注意到大部分板其实是不支持TZASC的，很疑惑这种TZ是如何保护内存的，这里写一下自己查阅到的信息，以及自己的理解  因为CPU内部的隔离逻辑的细节太过复杂，暂时没想到好的阐述方式，暂时留白。这里简单介绍下内存隔离实现的两个重要概念：MMU与TZASC TrustZone和MMU 摘自羁鸟返旧林的博客 http://blog.sina.com.cn/s/blog_4ce0162">
+<meta name="twitter:image" content="http://yoursite.com/images/post05_1.jpg">
 
 
 
@@ -143,13 +147,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/2017/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/10/25/TrustZone之MMU与TZASC/"/>
 
 
 
 
 
-  <title>归档 | Hiro WANG's Blog</title>
+  <title>TrustZone之MMU与TZASC | Hiro WANG's Blog</title>
   
 
 
@@ -168,7 +172,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -296,370 +300,232 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/25/TrustZone之MMU与TZASC/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hiro WANG's Blog">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hiro WANG's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">TrustZone之MMU与TZASC</h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-25T19:15:36+08:00">
+                2017-10-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 9 篇日志。 继续努力。
-      </span>
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/TrustZone/" itemprop="url" rel="index">
+                    <span itemprop="name">TrustZone</span>
+                  </a>
+                </span>
 
-      
-
-        
-        
-        
-
-        
+                
+                
+              
+            </span>
           
-          <div class="collection-title">
-            <h2 class="archive-year motion-element" id="archive-year-2017">2017</h2>
-          </div>
-        
-        
 
-        
+          
+            
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
+          
+             <span id="/2017/10/25/TrustZone之MMU与TZASC/" class="leancloud_visitors" data-flag-title="TrustZone之MMU与TZASC">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/10/25/TrustZone之MMU与TZASC/" itemprop="url">
+          
+
+          
+            <div class="post-wordcount">
               
-                <span itemprop="name">TrustZone之MMU与TZASC</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,198 字
+                </span>
               
-            </a>
-        
-      </h2>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-10-25T19:15:36+08:00"
-              content="2017-10-25" >
-          10-25
-        </time>
-      </div>
+              
 
-    </header>
-  </article>
+              
+            </div>
+          
 
+          
 
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/09/14/OP-TEE系列之-四-实现CA-TA调用与加密算法实现/" itemprop="url">
-              
-                <span itemprop="name">OP-TEE系列之(四)实现CA_TA调用与加密算法实现</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-09-14T10:53:54+08:00"
-              content="2017-09-14" >
-          09-14
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/09/08/Git推送文件夹到github仓库/" itemprop="url">
-              
-                <span itemprop="name">Git推送文件夹到github仓库</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-09-08T19:21:06+08:00"
-              content="2017-09-08" >
-          09-08
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <blockquote>
+<p>在选择开发板的时候注意到大部分板其实是不支持TZASC的，很疑惑这种TZ是如何保护内存的，这里写一下自己查阅到的信息，以及自己的理解</p>
+</blockquote>
+<p>因为CPU内部的隔离逻辑的细节太过复杂，暂时没想到好的阐述方式，暂时留白。这里简单介绍下内存隔离实现的两个重要概念：MMU与TZASC</p>
+<h3 id="TrustZone和MMU"><a href="#TrustZone和MMU" class="headerlink" title="TrustZone和MMU"></a>TrustZone和MMU</h3><blockquote>
+<p>摘自羁鸟返旧林的博客</p>
+<p><a href="http://blog.sina.com.cn/s/blog_4ce016230102v7no.html" target="_blank" rel="external">http://blog.sina.com.cn/s/blog_4ce016230102v7no.html</a></p>
+</blockquote>
+<p><strong>安全世界和普通世界都有自己的虚拟MMU，实际上两个世界都有一份TTBR0、TTBR1、TTBCR，也就是会有两个MMU表。 </strong> </p>
+<p>但TLB是共享的，在TLB里面会对安全世界的TLB项打上tag，所以实际上一个<strong>TLB也是逻辑上被划分了两个，不同世界各管各的。</strong>另外TLB对不同世界的项打上Tag也不是必须的，不同SoC可以不一定实现这个功能，毕竟转换世界的时候刷出整个TLB就可以了。  </p>
+<p>MMU表里的描述符也会有一个NS位，<strong>对于普通世界，处理器做地址转换的时候无视这个位</strong>，对于安全世界，处理器做地址转换的时候按照描述符里的NS位来确定地址转换的物理地址空间，NS=0的时候是按照安全世界的物理空间来做地址转换的，反之就是按非安全世界的物理空间来做地址转换的。</p>
+<p><strong>什么是安全世界的物理地址空间和普通世界的物理地址空间？</strong></p>
+<p><strong>看起来安全世界可以访问所有资源，怎么还是普通世界访问MMU表时无视里面的NS位？</strong></p>
+<p>这两个问题是相关的，首先要明白<strong>对资源的保护可不是通过MMU表里的NS位，而且TZASC和TZPC来做保护</strong>。划分为安全世界的物理地址空间和普通世界的物理地址空间，并不是说两个地址空间的内存map不一样，而是说<strong>同一个物理地址实际上被打上了安全和普通的两个“烙印”，这个“烙印”是对cache和TLB而言的（特别是cache），也就是说安全世界和普通世界访问同一个物理内存地址的内容，最后在cache里是有两份的</strong>。</p>
+<p>假设两个世界共享某一块内存用来做交互，如果普通世界更新了一些内容，这些内容暂时还在cache里，这时候</p>
+<p><strong>安全世界如果以安全世界的身份来访问这块内容的话，访问的是cache里安全世界自己的东西</strong>，这就有可能导致cache不一致。所以</p>
+<p><strong>安全世界也以普通世界的身份来访问的话，那样就能保证cache的一致</strong>。另外，对普通世界而言，描述符的NS位确实没有意义，因为它只能访问普通世界的资源。</p>
+<h3 id="TrustZone和TZASC"><a href="#TrustZone和TZASC" class="headerlink" title="TrustZone和TZASC"></a>TrustZone和TZASC</h3><p>Trustzone需要物理内存和外设在两个世界之间的隔离，这是安全世界真正在意的东西 — 因为你所要保护的信息和内容就在内存里或是经过某些外设。<br>物理内存和外设的隔离保护通过TZASC和TZPC的设置来达到目的。TZASC可以把物理内存分成多个区域，每个区域的访问权限可以灵活配置为安全区域或是非安全区域，甚至可以配置成只有普通世界可以访问。TZPC则是配置不同的外设属于哪个世界。当然了TZASC和TZPC的配置只能在安全世界下进行。</p>
+<hr>
+<h3 id="Con"><a href="#Con" class="headerlink" title="Con."></a>Con.</h3><p>TZMA是可选的，看SOC是否支持保护内存、外设  </p>
+<p><img src="/images/post05_1.jpg" alt="post05_1"></p>
+<p>TLB上的每行都有2个属性NS和NSTID。 他们将在TLB的每行上指定描述符和物理页面是安全的或不安全的。<br>但是当TLB miss时，它必须在页表中找到相应的物理页面，然后填写到TLB，所以  </p>
+<p>如何指定此物理页面是安全的还是不安全的？  </p>
+<blockquote>
+<p>安全世界产生的table项被认为是安全的，普通世界产生非安全项  </p>
+</blockquote>
+<p>TLB如何更新此条目的NS和NSTID？  </p>
+<blockquote>
+<p>NSTID =当前处理器的世界。</p>
+<p>NS = the NS bit from the L1 descriptor if in secure-world, one otherwise.</p>
+<p>安全世界NS为L1描述符中NS位的值，普通世界为1  </p>
+</blockquote>
+<p>Secure世界可以生成安全或非安全的访问。用于给定地址范围的内容由描述符中的NS位控制。  </p>
+<p><strong>如果SOC不支持TZASC，怎么知道对应物理地址是可以用来生成安全或非安全项的呢？</strong></p>
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/09/06/OP-TEE系列之-三-如何新建一个TA程序/" itemprop="url">
-              
-                <span itemprop="name">OP-TEE系列之(三)如何新建一个TA程序</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-09-06T22:01:54+08:00"
-              content="2017-09-06" >
-          09-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/09/05/OP-TEE系列之-二-Hello-world示例程序讲解/" itemprop="url">
-              
-                <span itemprop="name">OP-TEE系列之(二)Hello-world示例程序讲解</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-09-05T21:46:45+08:00"
-              content="2017-09-05" >
-          09-05
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/09/01/Intel-SGX-ARM-TrustZone等技术简介与分析入门/" itemprop="url">
-              
-                <span itemprop="name">Intel SGX ARM TrustZone等技术简介与分析入门</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-09-01T20:36:23+08:00"
-              content="2017-09-01" >
-          09-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/09/01/利用ZoomEye快速查找Hikvision网络摄像头/" itemprop="url">
-              
-                <span itemprop="name">利用ZoomEye快速查找Hikvision网络摄像头</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-09-01T17:34:58+08:00"
-              content="2017-09-01" >
-          09-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/08/28/Ubuntu-17-04-Snort-2-9-9-0-Barnyard2-PulledPork-BASE/" itemprop="url">
-              
-                <span itemprop="name">Ubuntu 17.04 + Snort 2.9.9.0 + Barnyard2 + PulledPork + BASE</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-08-28T18:07:58+08:00"
-              content="2017-08-28" >
-          08-28
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/08/26/Ubuntu-14-04-64位-搭建OP-TEE环境/" itemprop="url">
-              
-                <span itemprop="name">OP-TEE系列之(一)Ubuntu-14搭建QEMU中OP-TEE可信执行环境</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-08-26T22:38:26+08:00"
-              content="2017-08-26" >
-          08-26
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/TrustZone/" rel="tag"># TrustZone</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/14/OP-TEE系列之-四-实现CA-TA调用与加密算法实现/" rel="next" title="OP-TEE系列之(四)实现CA_TA调用与加密算法实现">
+                <i class="fa fa-chevron-left"></i> OP-TEE系列之(四)实现CA_TA调用与加密算法实现
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -667,6 +533,15 @@
 
 
           
+  <div class="comments" id="comments">
+    
+       
+         <div onclick="ShowGitment()" id="gitment-display-button">显示 Gitment 评论</div>
+         <div id="gitment-container" style="display:none"></div>
+           
+    
+  </div>
+
 
         </div>
         
@@ -689,8 +564,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -829,6 +713,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#TrustZone和MMU"><span class="nav-number">1.</span> <span class="nav-text">TrustZone和MMU</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TrustZone和TZASC"><span class="nav-number">2.</span> <span class="nav-text">TrustZone和TZASC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Con"><span class="nav-number">3.</span> <span class="nav-text">Con.</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -983,11 +883,6 @@ show_date_time();
   <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
 
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
 
 
   
@@ -1481,26 +1376,6 @@ show_date_time();
   
 
   
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 

@@ -120,7 +120,7 @@
 <meta property="og:image" content="http://yoursite.com/images/post_02_6.png">
 <meta property="og:image" content="http://yoursite.com/images/post_02_7.png">
 <meta property="og:image" content="http://yoursite.com/images/post_02_8.png">
-<meta property="og:updated_time" content="2017-09-08T11:29:37.472Z">
+<meta property="og:updated_time" content="2017-09-12T04:39:13.692Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="OP-TEE系列之(二)Hello-world示例程序讲解">
 <meta name="twitter:description" content="系列一中实现了QEMU虚拟机中的OP-TEE环境搭建，对于如何直观的理解OP-TEE的文件系统，本文中通过对其中集成的Hello_world示例进行分析，讲解Hello_world的运行流程。 本文系一边查阅资料一边记录而成，有错误之处欢迎指出  Hello_world文件目录安装好OP-TEE环境后，在Normal窗口键入hello_world，产生如下输出">
@@ -225,16 +225,6 @@
         </li>
       
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
@@ -255,12 +245,12 @@
         </li>
       
         
-        <li class="menu-item menu-item-rank">
-          <a href="/rank/" rel="section">
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-microchip"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
-            阅读榜
+            关于
           </a>
         </li>
       
@@ -455,8 +445,8 @@
 <p><br>本文系一边查阅资料一边记录而成，有错误之处欢迎指出</p>
 </blockquote>
 <h2 id="Hello-world文件目录"><a href="#Hello-world文件目录" class="headerlink" title="Hello_world文件目录"></a>Hello_world文件目录</h2><p>安装好OP-TEE环境后，在Normal窗口键入hello_world，产生如下输出</p>
-<p><img src="/images/post_02_1.png" alt="post_02_1"></p>
 <a id="more"></a>
+<p><img src="/images/post_02_1.png" alt="post_02_1"></p>
 <p>查看ll hello_world项目文件夹</p>
 <p><img src="/images/post_02_2.jpg" alt="post_02_2"></p>
 <h3 id="ta文件夹：TA部分代码"><a href="#ta文件夹：TA部分代码" class="headerlink" title="ta文件夹：TA部分代码"></a>ta文件夹：TA部分代码</h3><p><img src="/images/post_02_4.jpg" alt="post_02_4"></p>
@@ -581,6 +571,11 @@
           
   <div class="comments" id="comments">
     
+       
+         <div onclick="ShowGitment()" id="gitment-display-button">显示 Gitment 评论</div>
+         <div id="gitment-container" style="display:none"></div>
+           
+    
   </div>
 
 
@@ -632,7 +627,7 @@
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -643,7 +638,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -934,6 +929,32 @@ show_date_time();
 
 
   
+   
+   
+   
+   
+   <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+   <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+   
+       <script type="text/javascript">
+           function ShowGitment(){
+               document.getElementById("gitment-display-button").style.display = "none";
+               document.getElementById("gitment-container").style.display = "block";
+               var gitment = new Gitment({
+                   id: document.location.href, 
+                   owner: 'hiro086',
+                   repo: 'https://github.com/hiro086/blog',
+                   oauth: {
+                       client_id: '76c737d8a1864787d803',
+                       client_secret: 'afbb89bba8893de7641fcbc8f331925e733b7641',
+                   }});
+               gitment.render('gitment-container');
+           }
+       </script>
+   
+
+
+
 
 
   
